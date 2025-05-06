@@ -1,13 +1,31 @@
 <template>
-  <p>count: {{ count }}</p>
-  <p>doubleCount: {{ doubleCount }}</p>
+  <!-- เปรียบเทียบการ Sync กันของ Composable และ Pinia -->
+  <!-- Composables -->
+  <!-- Counter A -->
+  <div>
+    <p>Counter A: {{ a.count }}</p>
+    <button @click="a.increment">เพิ่ม A</button>
+  </div>
 
-  <button @click="increment"> + </button>
+  <!-- Counter B -->
+  <div style="margin-top: 1em;">
+    <p>Counter B: {{ b.count }}</p>
+    <button @click="b.increment">เพิ่ม B</button>
+  </div>
+
+  <!-- Pinia -->
+  <p>count: {{ counterStore.count }}</p>
+  <p>doubleCount: {{ counterStore.doubleCount }}</p>
+
+  <button @click="counterStore.increment"> + </button>
 </template>
 
 <script lang="ts" setup>
+  import { useCounter } from '@/composables/useCounter'
   import { useCounterStore } from '@/stores/counter'
-  const { count, doubleCount, increment } = useCounterStore()
+  const counterStore = useCounterStore()
+  const a = useCounter()
+  const b = useCounter()
 </script>
 
 <style scoped>

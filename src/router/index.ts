@@ -34,11 +34,11 @@ const router = createRouter({
       component: () => import('@/views/BasicRouterPage.vue')
     },
     // Dynamic Route
-{
-  path: '/product/:id',
-  name: 'BasicProductPage',
-  component: () => import('@/views/ProductPage.vue')
-},
+    {
+      path: '/product/:id',
+      name: 'BasicProductPage',
+      component: () => import('@/views/ProductPage.vue')
+    },
     // Nested Routes
     {
       path: '/default',
@@ -83,11 +83,12 @@ const router = createRouter({
 //   component: () => import('@/views/HomePage.vue'),
 //   meta: { requireAuth: true }
 // }]
-// let isAuthenticated = false
+
+// const isAuthenticated = false
 
 // router.beforeEach((to, form, next) => {
 //   if (
-//     to.name !== 'Login'&& 
+//     to.name !== 'Login' && 
 //     to.meta?.requireAuth &&
 //     !isAuthenticated
 //   ) {
